@@ -1,0 +1,27 @@
+name: 'setup DepotDownloader test'
+
+on:
+  push:
+  pull_request:
+
+defaults:
+  run:
+    shell: bash
+
+jobs:
+  depot-downloader-test-matrix:
+    name: DepotDownloader local run on ${{ matrix.os }}
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ubuntu-latest, windows-latest, macos-latest]
+
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v4
+
+    - name: Setup DepotDownloader
+      uses: ./
+
+    - name: Get DepotDownloader version
+      run: DepotDownloader

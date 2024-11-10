@@ -1,0 +1,25 @@
+{
+  "name": "setup-steam-depot-downloader",
+  "description": "Setup Steam Depot Downloader",
+  "version": "0.1.0",
+  "private": true,
+  "license": "MIT",
+  "exports": {
+    ".": "./dist/index.js"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "build": "npx ncc build src/index.js -o dist --source-map --license licenses.txt"
+  },
+  "dependencies": {
+    "@actions/core": "^1.11.1",
+    "@actions/exec": "^1.1.1",
+    "@actions/tool-cache": "^2.0.1"
+  },
+  "devDependencies": {
+    "@github/local-action": "^2.2.0",
+    "@vercel/ncc": "^0.38.2"
+  }
+}

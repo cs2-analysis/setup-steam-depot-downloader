@@ -1,0 +1,13 @@
+name: 'Setup Steam Depot Downloader'
+description: 'Setup Steam Depot Downloader'
+author: 'dumbasPL'
+
+inputs:
+  version:
+    description: 'Steam Depot Downloader version'
+    required: false
+    default: 'latest'
+
+runs:
+  using: 'node20'
+  main: 'dist/index.js'
