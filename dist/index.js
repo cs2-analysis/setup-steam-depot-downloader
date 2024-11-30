@@ -28310,7 +28310,7 @@ async function download() {
     core.addPath(cachePath);
     return;
   } else {
-    core.notice(`Not found in cache`);
+    core.info(`Not found in cache`);
   }
 
   const url = getUrl(version, osPlatform, osArch);
@@ -28350,6 +28350,7 @@ async function run() {
 }
 
 module.exports = {run}
+
 
 /***/ }),
 
