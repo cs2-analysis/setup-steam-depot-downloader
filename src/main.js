@@ -70,6 +70,10 @@ async function test() {
 async function run() {
   try {
     await download();
+    if (core.getInput("test").toLowerCase() !== 'true') {
+      return;
+    }
+
     await test();
 
     core.info('DepotDownloader is ready to use');
