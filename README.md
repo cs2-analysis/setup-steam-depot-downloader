@@ -9,5 +9,4 @@ Action to setup Steam depot downloader
   uses: cs2-analysis/setup-steam-depot-downloader@v1
   with:
     version: 'latest' # Optional. This is a release tag. Default is 'latest'
-    test: 'false' # Optional. Skips testing the tool. Default is 'true'
 ```

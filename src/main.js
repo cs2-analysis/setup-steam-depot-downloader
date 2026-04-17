@@ -61,19 +61,21 @@ async function download() {
 
 async function test() {
   core.info('Running DepotDownloader to check if it works');
-  const exit = await exec.exec('DepotDownloader');
+
+  let output = '';
+  const exit = await exec.exec('DepotDownloader', [], {
+    listeners: {
+      stdline: data => output += data.toString()
+    }
+  });
   if (exit !== 0) {
-    throw new Error('Failed to run DepotDownloader');
+    throw new Error('Failed to run DepotDownloader:\n' + output);
   }
 }
 
 async function run() {
   try {
     await download();
-    if (core.getInput("test").toLowerCase() !== 'true') {
-      return;
-    }
-
     await test();
 
     core.info('DepotDownloader is ready to use');
