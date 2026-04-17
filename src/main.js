@@ -64,12 +64,14 @@ async function test() {
 
   let output = '';
   const exit = await exec.exec('DepotDownloader', [], {
+    silent: true,
     listeners: {
-      stdline: data => output += data.toString()
+      stdline: data => output += `${data}\n`
     }
   });
+  core.debug(output);
   if (exit !== 0) {
-    throw new Error('Failed to run DepotDownloader:\n' + output);
+    throw new Error('Failed to run DepotDownloader');
   }
 }
 
