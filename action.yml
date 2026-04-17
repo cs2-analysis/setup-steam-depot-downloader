@@ -7,10 +7,6 @@ inputs:
     description: 'Steam Depot Downloader version'
     required: false
     default: 'latest'
-  test:
-    description: 'Whether to run DepotDownloader (with no arguments) in order to check if it works'
-    required: false
-    default: 'true'
 
 runs:
   using: 'node24'
