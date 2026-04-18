@@ -61,7 +61,15 @@ async function download() {
 
 async function test() {
   core.info('Running DepotDownloader to check if it works');
-  const exit = await exec.exec('DepotDownloader');
+
+  let output = '';
+  const exit = await exec.exec('DepotDownloader', [], {
+    silent: true,
+    listeners: {
+      stdline: data => output += `${data}\n`
+    }
+  });
+  core.debug(output);
   if (exit !== 0) {
     throw new Error('Failed to run DepotDownloader');
   }
